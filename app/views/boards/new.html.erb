@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8 col-xs-12">
+		<h1 style="text-align: center; font-weight: 800;">
+			スレッドを新しく建てる
+		</h1>
+		<%= form_for @board do |f| %>
+		<b>スレッドタイトル</b><br>
+			<%= f.text_field :title %><br>
+		<b>詳細</b><br>
+			<%= f.text_area :detail %><br>
+			<%=f.submit 'イベントを新規発行する', class: 'btn btn-primary btn-lg btn-block' %>
+		<% end %>
+	</div>
+	<div class="col-lg-2"></div>
+</div>

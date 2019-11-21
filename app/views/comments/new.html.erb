@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8 col-xs-12 padding_top">
+		タイトル: <%= @post.title %><br>
+		<%= @post.body %>
+
+		<hr>
+		<%= form_for @comment, url: board_post_comments_path(board_id: params[:board_id], post_id: params[:post_id]) do |f| %>
+			タイトル<br>
+			<%= f.text_field :title %><br>
+			本文<br>
+			<%= f.text_area :body %><br>
+			<%=f.submit '返信する', class: 'btn btn-primary btn-lg btn-block' %>
+		<% end %>
+	</div>
+	<div class="col-lg-2"></div>
+</div>

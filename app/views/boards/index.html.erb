@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-lg-4">
+		<% @boards.each do |b| %>
+			<ul id="nav">
+				<li><%=link_to "#{b.title}", board_path(b.id)  %></li>
+			</ul>
+		<% end %>
+	</div>
+	<div class="col-lg-8">
+		<div class="row">
+			<div class="col-lg-2"></div>
+			<%= link_to "スレッドを新しく作成する", new_board_path, class: "btn btn-primary btn-lg" %>
+			<div class="col-lg-8 col-xs-12 ">
+				<h2 style="text-align: center;">最新の発言一覧</h2>
+				<% @new_posts.each do |p| %>
+				<div class="kakomi">
+				<div style="text-align:right;"><%= p.board.title %>のスレッドの投稿<br></div>
+					タイトル:<%= p.title %><br>
+					<%= p.body %><br>
+				</div>
+				<% end %>
+			</div>
+			<div class="col-lg-2"></div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8 col-xs-12">
+		<h1 style="text-align: center; font-weight: 800;">
+			新しく発言する
+		</h1>
+		<%= form_for @post, url: board_posts_path(board_id: params[:board_id]) do |f| %>
+			<p>タイトル</p>
+			<%= f.text_field :title %>
+			<p>本文</p>
+			<%= f.text_area :body %>
+			<%=f.submit '発言する', class: 'btn btn-primary btn-lg btn-block' %>
+		<% end %>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
