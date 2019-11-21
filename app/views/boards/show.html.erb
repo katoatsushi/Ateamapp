@@ -1,8 +1,12 @@
+<div>
+	<%= link_to "投稿する", new_board_post_path(board_id: params[:id]),class: "btn btn-primary btn-lg" %>
+	<%= link_to "スレットを編集する" , edit_board_path(params[:id]),class: "btn btn-success btn-lg" %>
+	<%= link_to "スレッド削除", board_path(params[:id]) ,method: :delete,class: "btn btn-danger btn-lg",data: { confirm: 'このスレッドを削除して本当によろしいですか？' }  %>
+</div>
+<hr>
 <div class="row padding_top">
 	<h2 style="text-align: center;"><%= @board.detail %></h2>
-	<%= link_to "投稿する", new_board_post_path(board_id: params[:id]),class: "btn btn-primary btn-lg" %>
 	<% @posts.each do |p| %>
-
 	<div class="col-lg-2"></div>
 	<div class="col-lg-8">
 		<div class="kakomi">

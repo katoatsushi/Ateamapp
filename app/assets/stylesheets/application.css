@@ -49,3 +49,12 @@
  background-color: #f7f7f7; /* 背景色 */
  border: 1px solid #ccc; /* 枠線 */
 }
+textarea{
+  width: 80%;
+  height: 300px;
+}
+
+input{
+  width: 80%;
+  height: 40px;
+}

@@ -13,12 +13,17 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    @boards = Board.find(params[:id])
+    @board = Board.find(params[:id])
   end
 
   def update
-    @boards = Board.find(params[:id])
-
+    @board = Board.find(params[:id])
+    @board.update(board_params)
+    if @board.save
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   def index
@@ -32,7 +37,13 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @boards = Board.find(params[:id])
+    @board = Board.find(params[:id])
+    posts = Post.where(board_id: @board.id)
+    comments = Comment.where(board_id: @board.id)
+    comments.delete_all
+    posts.delete_all
+    @board.delete
+    redirect_to root_path
   end
 
   private
