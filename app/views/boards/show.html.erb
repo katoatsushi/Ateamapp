@@ -1,7 +1,7 @@
 <div>
 	<%= link_to "投稿する", new_board_post_path(board_id: params[:id]),class: "btn btn-primary btn-lg" %>
 	<%= link_to "スレットを編集する" , edit_board_path(params[:id]),class: "btn btn-success btn-lg" %>
-	<%= link_to "スレッド削除", board_path(params[:id]) ,method: :delete,class: "btn btn-danger btn-lg",data: { confirm: 'このスレッドを削除して本当によろしいですか？' }  %>
+	<%= link_to "スレッド削除", board_path(params[:id]) ,method: :delete, class: "btn btn-danger btn-lg",data: { confirm: 'このスレッドを削除して本当によろしいですか？' }  %>
 </div>
 <hr>
 <div class="row padding_top">
@@ -12,18 +12,21 @@
 		<div class="kakomi">
 		<b>タイトル: <%= p.title %></b><br>
 		<%= p.body %><br>
-		<%= link_to "返信する",new_board_post_comment_path(board_id: params[:id], post_id: p.id) %>
 		<div class="row">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10">
 				<% p.comments.each do |c| %>
-					<%= c.title %><br>
-					<%= c.body %>
-					<hr>
+					<div class="kakomi_mini">
+						<%= c.title %><br>
+						<%= c.body %><br>
+						<%= link_to "この返信を削除する", comment_path(c.id), method: :delete,data: { confirm: '本当に削除してよろしいですか？' }  %>
+					</div>
 				<% end %>
 			</div>
 			<div class="col-lg-1"></div>
 		</div>
+		<%= link_to "返信する",new_board_post_comment_path(board_id: params[:id], post_id: p.id), class: "btn btn-primary" %>
+		<%= link_to "この発言を削除する",board_post_path(board_id: params[:id], id: p.id),method: :delete,  class: "btn btn-danger",data: { confirm: 'この発言を削除して本当によろしいですか？' } %>
 		</div>
 	</div>
 	<div class="col-lg-2"></div>

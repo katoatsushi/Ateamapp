@@ -21,6 +21,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    board_id = @post.board_id
+    comments = Comment.where(post_id: @post.id)
+    comments.delete_all
+    @post.delete
+    redirect_to board_path(board_id)
+
   end
 
   def index

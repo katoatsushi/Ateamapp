@@ -27,11 +27,11 @@
   font-size: 1.5em;
 }
  
-#nav li a {
+/*#nav li a {
   text-decoration: none;
   color: black;
   font-weight: bold;
-}
+}*/
 
 .padding_top{
   padding-top: 50px;
@@ -42,13 +42,23 @@
 }
 
 .kakomi {
- margin: 2em auto;
- padding: 1em;
+ margin: 1em auto;
+ padding: 0.5em;
  width: 90%;
  color: #666; /* 文字色 */
  background-color: #f7f7f7; /* 背景色 */
  border: 1px solid #ccc; /* 枠線 */
 }
+
+.kakomi_mini {
+ margin: 1em auto;
+ padding: 0.5em;
+ width: 90%;
+ color: #666; /* 文字色 */
+ background-color: #EEEEEE; /* 背景色 */
+ border: 1px solid #ccc; /* 枠線 */
+}
+
 textarea{
   width: 80%;
   height: 300px;

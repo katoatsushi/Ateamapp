@@ -24,6 +24,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    board_id = @comment.board_id
+    @comment.delete
+    redirect_to  board_path(board_id)
   end
 
   def index
