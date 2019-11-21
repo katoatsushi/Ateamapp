@@ -5,7 +5,7 @@
 			新しく発言する
 		</h1>
 		<%= form_for @post, url: board_posts_path(board_id: params[:board_id]) do |f| %>
-			<p>タイトル</p>
+			<p>タイトル(100文字以内)</p>
 			<%= f.text_field :title %>
 			<p>本文</p>
 			<%= f.text_area :body %>

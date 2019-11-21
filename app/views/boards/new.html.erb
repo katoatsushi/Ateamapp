@@ -5,7 +5,7 @@
 			スレッドを新しく建てる
 		</h1>
 		<%= form_for @board do |f| %>
-		<b>スレッドタイトル</b><br>
+		<b>スレッドタイトル(100文字以内)</b><br>
 			<%= f.text_field :title %><br>
 		<b>詳細</b><br>
 			<%= f.text_area :detail %><br>
